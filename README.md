@@ -6,7 +6,43 @@
 This repository contains the starter code for the project in [**IBM-CD0285EN-SkillsNetwork DevOps Capstone Project**](https://www.coursera.org/learn/devops-capstone-project?specialization=devops-and-software-engineering) which is part of the [**IBM DevOps and Software Engineering Professional Certificate**](https://www.coursera.org/professional-certificates/devops-and-software-engineering)
 
 ## Usage
+# DevOps Capstone Project – Customer Accounts Microservice
 
+[![CI Build](https://github.com/alicess19/devops-capstone-project/actions/workflows/ci-build.yaml/badge.svg)](https://github.com/alicess19/devops-capstone-project/actions/workflows/ci-build.yaml)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Python 3.9](https://img.shields.io/badge/Python-3.9-green.svg)](https://shields.io/)
+
+## Project Overview
+
+This repository contains the DevOps Capstone Project for the IBM DevOps and Software Engineering Professional Certificate.
+
+The project implements a Customer Accounts microservice and demonstrates the use of modern DevOps practices across the full software delivery lifecycle.
+
+The application provides RESTful API operations for managing customer accounts, including creating, reading, updating, deleting, and listing account records.
+
+The project includes:
+
+- Agile planning with GitHub Issues and a Kanban board
+- User story management across sprints
+- REST API development using Flask
+- Test-driven development with Nose
+- Code quality validation with Flake8 and Pylint
+- Continuous integration with GitHub Actions
+- Security headers and CORS configuration
+- Containerization with Docker
+- Kubernetes deployment
+- Continuous delivery automation with Tekton
+
+## Development Environment
+
+These labs are designed to be executed in the IBM Developer Skills Network Cloud IDE with OpenShift.
+
+The project can also be developed locally or in GitHub Codespaces when the required tools are available.
+
+To initialize the IBM Cloud IDE environment, source the setup script:
+
+```text
+source bin/setup.sh
 You should use this template to start your DevOps Capstone project. It contains all of the code that you will need to get started.
 
 Do Not fork this code! It is meant to be used by pressing the  <span style=color:white;background:green>**Use this Template**</span> button in GitHub. This will copy the code to your own repository with no connection back to the original repository like a fork would. This is what you want.
