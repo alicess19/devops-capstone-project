@@ -1,0 +1,97 @@
+name: Tekton CD Pipeline
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-tekton-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install kind
+        run: |
+          curl -Lo kind https://kind.sigs.k8s.io/dl/v0.23.0/kind-linux-amd64
+          chmod +x kind
+          sudo mv kind /usr/local/bin/kind
+          kind version
+
+      - name: Create Kubernetes cluster
+        run: |
+          kind create cluster --name tekton
+
+      - name: Install Tekton Pipelines
+        run: |
+          kubectl apply --filename \
+            https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+
+          kubectl wait \
+            --namespace tekton-pipelines \
+            --for=condition=Available \
+            deployment/tekton-pipelines-controller \
+            --timeout=300s
+
+          kubectl wait \
+            --namespace tekton-pipelines \
+            --for=condition=Available \
+            deployment/tekton-pipelines-webhook \
+            --timeout=300s
+
+      - name: Install Tekton CLI
+        run: |
+          TKN_VERSION="0.41.0"
+          curl -LO \
+            "https://github.com/tektoncd/cli/releases/download/v${TKN_VERSION}/tkn_${TKN_VERSION}_Linux_x86_64.tar.gz"
+          sudo tar xvzf \
+            "tkn_${TKN_VERSION}_Linux_x86_64.tar.gz" \
+            -C /usr/local/bin tkn
+          tkn version
+
+      - name: Create Tekton resources
+        run: |
+          kubectl apply -f tekton/tasks.yaml
+          kubectl apply -f tekton/pipeline.yaml
+
+      - name: Start PipelineRun
+        run: |
+          kubectl create -f tekton/pipelinerun.yaml
+          kubectl get pipelineruns
+
+      - name: Wait for PipelineRun
+        run: |
+          PIPELINE_RUN=$(kubectl get pipelinerun \
+            --sort-by=.metadata.creationTimestamp \
+            -o jsonpath='{.items[-1:].metadata.name}')
+
+          echo "PIPELINE_RUN=$PIPELINE_RUN" >> "$GITHUB_ENV"
+
+          kubectl wait \
+            --for=condition=Succeeded \
+            "pipelinerun/$PIPELINE_RUN" \
+            --timeout=600s
+
+      - name: Save complete PipelineRun logs
+        if: always()
+        run: |
+          {
+            echo '$ tkn pipelinerun describe'
+            echo
+            tkn pipelinerun describe "$PIPELINE_RUN"
+            echo
+            echo '$ tkn pipelinerun logs --all'
+            echo
+            tkn pipelinerun logs "$PIPELINE_RUN" --all
+            echo
+            echo '$ kubectl get pipelinerun'
+            echo
+            kubectl get pipelinerun "$PIPELINE_RUN"
+          } | tee pipelinerun.txt
+
+      - name: Upload PipelineRun output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tekton-pipelinerun-output
+          path: pipelinerun.txt
