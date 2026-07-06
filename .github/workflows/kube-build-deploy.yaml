@@ -1,0 +1,85 @@
+name: Docker and Kubernetes Deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - Dockerfile
+      - requirements.txt
+      - service/**
+      - deploy/**
+      - .github/workflows/kube-build-deploy.yaml
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build --rm --tag accounts:1.0 .
+
+      - name: Save Docker image details
+        run: |
+          {
+            echo '$ docker images accounts:1.0'
+            echo
+            docker images accounts:1.0
+          } | tee kube-images
+
+      - name: Install kind
+        run: |
+          curl -Lo kind https://kind.sigs.k8s.io/dl/v0.23.0/kind-linux-amd64
+          chmod +x kind
+          sudo mv kind /usr/local/bin/kind
+          kind version
+
+      - name: Create Kubernetes cluster
+        run: |
+          kind create cluster --name accounts
+
+      - name: Load image into cluster
+        run: |
+          kind load docker-image accounts:1.0 --name accounts
+
+      - name: Deploy Accounts service
+        run: |
+          kubectl apply -f deploy/accounts.yaml
+          kubectl rollout status deployment/accounts --timeout=180s
+          kubectl wait \
+            --for=condition=Ready \
+            pod \
+            -l app=accounts \
+            --timeout=180s
+
+      - name: Save Kubernetes deployment details
+        run: |
+          {
+            echo '$ kubectl get deployments'
+            kubectl get deployments
+            echo
+            echo '$ kubectl get pods'
+            kubectl get pods
+            echo
+            echo '$ kubectl get replicasets'
+            kubectl get replicasets
+            echo
+            echo '$ kubectl get services'
+            kubectl get services
+            echo
+            echo '$ kubectl get all -l app=accounts -o wide'
+            kubectl get all -l app=accounts -o wide
+          } | tee kube-deploy-accounts
+
+      - name: Upload deployment outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: kube-output-files
+          path: |
+            kube-images
+            kube-deploy-accounts
