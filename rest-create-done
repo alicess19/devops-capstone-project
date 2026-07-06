@@ -1,0 +1,20 @@
+curl -i -X POST http://localhost:8000/accounts \
+  -H "Content-Type: application/json" \
+  -d '{"name":"Alexandra Anton","email":"alexandra.anton@example.com","address":"Bucharest, Romania","phone_number":"0712345678"}'
+
+HTTP/1.1 201 CREATED
+Server: gunicorn
+Date: Mon, 06 Jul 2026 10:45:22 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 188
+Location: /
+
+{
+  "address": "Bucharest, Romania", 
+  "date_joined": "2026-07-06", 
+  "email": "alexandra.anton@example.com", 
+  "id": 1, 
+  "name": "Alexandra Anton", 
+  "phone_number": "0712345678"
+}
