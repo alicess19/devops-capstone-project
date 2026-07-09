@@ -1,0 +1,28 @@
+$ kubectl get deployments
+NAME       READY   UP-TO-DATE   AVAILABLE   AGE
+accounts   2/2     2            2           10s
+
+$ kubectl get pods
+NAME                        READY   STATUS    RESTARTS   AGE
+accounts-74c4b47f67-dh7ds   1/1     Running   0          4s
+accounts-74c4b47f67-h2wpd   1/1     Running   0          4s
+
+$ kubectl get replicasets
+NAME                  DESIRED   CURRENT   READY   AGE
+accounts-74c4b47f67   2         2         2       4s
+
+$ kubectl get services
+NAME         TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE
+accounts     ClusterIP   10.96.138.36   <none>        8080/TCP   10s
+kubernetes   ClusterIP   10.96.0.1      <none>        443/TCP    20s
+
+$ kubectl get all -l app=accounts -o wide
+NAME                            READY   STATUS    RESTARTS   AGE   IP           NODE                     NOMINATED NODE   READINESS GATES
+pod/accounts-74c4b47f67-dh7ds   1/1     Running   0          4s    10.244.0.5   accounts-control-plane   <none>           <none>
+pod/accounts-74c4b47f67-h2wpd   1/1     Running   0          4s    10.244.0.6   accounts-control-plane   <none>           <none>
+
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES         SELECTOR
+deployment.apps/accounts   2/2     2            2           10s   accounts     accounts:1.0   app=accounts
+
+NAME                                  DESIRED   CURRENT   READY   AGE   CONTAINERS   IMAGES         SELECTOR
+replicaset.apps/accounts-74c4b47f67   2         2         2       4s    accounts     accounts:1.0   app=accounts,pod-template-hash=74c4b47f67

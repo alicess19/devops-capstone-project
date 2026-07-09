@@ -1,0 +1,8 @@
+curl -i -X DELETE http://localhost:8000/accounts/1
+
+HTTP/1.1 204 NO CONTENT
+Server: gunicorn
+Date: Mon, 06 Jul 2026 11:26:06 GMT
+Connection: close
+Content-Type: text/html; charset=utf-8
+

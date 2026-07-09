@@ -1,0 +1,193 @@
+gh run view 28789069871
+
+
+✓ main CI Build · 28789069871
+Triggered via push about 2 minutes ago
+
+JOBS
+✓ build in 26s (ID 85362858052)
+
+ANNOTATIONS
+! Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+build: .github#2
+
+
+For more information about the job, try: gh run view --job=85362858052
+View this run on GitHub: https://github.com/alicess19/devops-capstone-project/actions/runs/28789069871
+
+gh run view 28789069871 --log
+
+build   Set up job      2026-07-06T11:44:20.4668494Z Current runner version: '2.335.1'
+build   Set up job      2026-07-06T11:44:20.4694554Z ##[group]Runner Image Provisioner
+build   Set up job      2026-07-06T11:44:20.4695511Z Hosted Compute Agent
+build   Set up job      2026-07-06T11:44:20.4696097Z Version: 20260624.560
+build   Set up job      2026-07-06T11:44:20.4696749Z Commit: 925d229a51159bc391ae97e54a2dd1fe20af789d
+build   Set up job      2026-07-06T11:44:20.4697595Z Build Date: 2026-06-24T18:26:47Z
+build   Set up job      2026-07-06T11:44:20.4698264Z Worker ID: {4110f4a2-ab84-4fce-b6b5-5319e1688337}
+build   Set up job      2026-07-06T11:44:20.4699019Z Azure Region: northcentralus
+build   Set up job      2026-07-06T11:44:20.4699620Z ##[endgroup]
+build   Set up job      2026-07-06T11:44:20.4701029Z ##[group]Operating System
+build   Set up job      2026-07-06T11:44:20.4701805Z Ubuntu
+build   Set up job      2026-07-06T11:44:20.4702331Z 24.04.4
+build   Set up job      2026-07-06T11:44:20.4702861Z LTS
+build   Set up job      2026-07-06T11:44:20.4703699Z ##[endgroup]
+build   Set up job      2026-07-06T11:44:20.4704266Z ##[group]Runner Image
+build   Set up job      2026-07-06T11:44:20.4704967Z Image: ubuntu-24.04
+build   Set up job      2026-07-06T11:44:20.4705527Z Version: 20260628.225.1
+build   Set up job      2026-07-06T11:44:20.4706576Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260628.225/images/ubuntu/Ubuntu2404-Readme.md
+build   Set up job      2026-07-06T11:44:20.4708418Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260628.225
+build   Set up job      2026-07-06T11:44:20.4709456Z ##[endgroup]
+build   Set up job      2026-07-06T11:44:20.4710616Z ##[group]GITHUB_TOKEN Permissions
+build   Set up job      2026-07-06T11:44:20.4712590Z Contents: read
+build   Set up job      2026-07-06T11:44:20.4713578Z Metadata: read
+build   Set up job      2026-07-06T11:44:20.4714544Z Packages: read
+build   Set up job      2026-07-06T11:44:20.4715252Z ##[endgroup]
+build   Set up job      2026-07-06T11:44:20.4717344Z Secret source: Actions
+build   Set up job      2026-07-06T11:44:20.4718413Z Prepare workflow directory
+build   Set up job      2026-07-06T11:44:20.5062088Z Prepare all required actions
+build   Set up job      2026-07-06T11:44:20.5100548Z Getting action download info
+build   Set up job      2026-07-06T11:44:20.7581790Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+build   Set up job      2026-07-06T11:44:20.8419163Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+build   Set up job      2026-07-06T11:44:21.0315044Z Complete job name: build
+
+build   Initialize containers  2026-07-06T11:44:21.0315045Z ##[group]Initialize containers
+build   Initialize containers  2026-07-06T11:44:21.0315046Z ##[endgroup]
+
+build   Checkout repository     2026-07-06T11:44:21.1081863Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+build   Checkout repository     2026-07-06T11:44:21.1090858Z ##[group]Run actions/checkout@v4
+build   Checkout repository     2026-07-06T11:44:21.1091610Z with:
+build   Checkout repository     2026-07-06T11:44:21.1092114Z   repository: alicess19/devops-capstone-project
+build   Checkout repository     2026-07-06T11:44:21.1096224Z   token: ***
+build   Checkout repository     2026-07-06T11:44:21.1096666Z   ssh-strict: true
+build   Checkout repository     2026-07-06T11:44:21.1097092Z   ssh-user: git
+build   Checkout repository     2026-07-06T11:44:21.1097530Z   persist-credentials: true
+build   Checkout repository     2026-07-06T11:44:21.1098009Z   clean: true
+build   Checkout repository     2026-07-06T11:44:21.1098443Z   sparse-checkout-cone-mode: true
+build   Checkout repository     2026-07-06T11:44:21.1098970Z   fetch-depth: 1
+build   Checkout repository     2026-07-06T11:44:21.1099397Z   fetch-tags: false
+build   Checkout repository     2026-07-06T11:44:21.1099838Z   show-progress: true
+build   Checkout repository     2026-07-06T11:44:21.1100274Z   lfs: false
+build   Checkout repository     2026-07-06T11:44:21.1100680Z   submodules: false
+build   Checkout repository     2026-07-06T11:44:21.1101163Z   set-safe-directory: true
+build   Checkout repository     2026-07-06T11:44:21.1101890Z ##[endgroup]
+build   Checkout repository     2026-07-06T11:44:21.2089743Z Syncing repository: alicess19/devops-capstone-project
+build   Checkout repository     2026-07-06T11:44:21.2092343Z ##[group]Getting Git version info
+build   Checkout repository     2026-07-06T11:44:21.2094236Z Working directory is '/home/runner/work/devops-capstone-project/devops-capstone-project'
+build   Checkout repository     2026-07-06T11:44:21.2096144Z [command]/usr/bin/git version
+build   Checkout repository     2026-07-06T11:44:21.2180289Z git version 2.54.0
+build   Checkout repository     2026-07-06T11:44:21.2215921Z ##[endgroup]
+build   Checkout repository     2026-07-06T11:44:21.2224588Z Temporarily overriding HOME='/home/runner/work/_temp/767e2809-34f9-4e3d-96ce-bcb914f6dd77' before making global git config changes
+build   Checkout repository     2026-07-06T11:44:21.2227069Z Adding repository directory to the temporary git global config as a safe directory
+build   Checkout repository     2026-07-06T11:44:21.2229523Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/devops-capstone-project/devops-capstone-project
+build   Checkout repository     2026-07-06T11:44:21.2289623Z Deleting the contents of '/home/runner/work/devops-capstone-project/devops-capstone-project'
+build   Checkout repository     2026-07-06T11:44:21.2293027Z ##[group]Initializing the repository
+build   Checkout repository     2026-07-06T11:44:21.2298125Z [command]/usr/bin/git init /home/runner/work/devops-capstone-project/devops-capstone-project
+build   Checkout repository     2026-07-06T11:44:21.2432580Z hint: Using 'master' as the name for the initial branch. This default branch name
+build   Checkout repository     2026-07-06T11:44:21.2434505Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+build   Checkout repository     2026-07-06T11:44:21.2436075Z hint: to use in all of your new repositories, which will suppress this warning,
+build   Checkout repository     2026-07-06T11:44:21.2437254Z hint: call:
+build   Checkout repository     2026-07-06T11:44:21.2437862Z hint:
+build   Checkout repository     2026-07-06T11:44:21.2438621Z hint:      git config --global init.defaultBranch <name>
+build   Checkout repository     2026-07-06T11:44:21.2439621Z hint:
+build   Checkout repository     2026-07-06T11:44:21.2440599Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+build   Checkout repository     2026-07-06T11:44:21.2442103Z hint: 'development'. The just-created branch can be renamed via this command:
+build   Checkout repository     2026-07-06T11:44:21.2443472Z hint:
+build   Checkout repository     2026-07-06T11:44:21.2444107Z hint:      git branch -m <name>
+build   Checkout repository     2026-07-06T11:44:21.2444918Z hint:
+build   Checkout repository     2026-07-06T11:44:21.2445959Z hint: Disable this message with "git config set advice.defaultBranchName false"
+build   Checkout repository     2026-07-06T11:44:21.2454447Z Initialized empty Git repository in /home/runner/work/devops-capstone-project/devops-capstone-project/.git/
+build   Checkout repository     2026-07-06T11:44:21.2467586Z [command]/usr/bin/git remote add origin https://github.com/alicess19/devops-capstone-project
+build   Checkout repository     2026-07-06T11:44:21.2519938Z ##[endgroup]
+build   Checkout repository     2026-07-06T11:44:21.2521223Z ##[group]Disabling automatic garbage collection
+build   Checkout repository     2026-07-06T11:44:21.2524282Z [command]/usr/bin/git config --local gc.auto 0
+build   Checkout repository     2026-07-06T11:44:21.2575905Z ##[endgroup]
+build   Checkout repository     2026-07-06T11:44:21.2577038Z ##[group]Setting up auth
+build   Checkout repository     2026-07-06T11:44:21.2578225Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+build   Checkout repository     2026-07-06T11:44:21.2607805Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+build   Checkout repository     2026-07-06T11:44:21.3025353Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+build   Checkout repository     2026-07-06T11:44:21.3059446Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+build   Checkout repository     2026-07-06T11:44:21.3285874Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+build   Checkout repository     2026-07-06T11:44:21.3320838Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+build   Checkout repository     2026-07-06T11:44:21.3551643Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+build   Checkout repository     2026-07-06T11:44:21.3604721Z ##[endgroup]
+build   Checkout repository     2026-07-06T11:44:21.3605580Z ##[group]Fetching the repository
+build   Checkout repository     2026-07-06T11:44:21.3615049Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e8e190976642a353f74e8dd6551d3d5b41d0bddc:refs/remotes/origin/main
+build   Checkout repository     2026-07-06T11:44:21.6260625Z From https://github.com/alicess19/devops-capstone-project
+build   Checkout repository     2026-07-06T11:44:21.6262645Z  * [new ref]         e8e190976642a353f74e8dd6551d3d5b41d0bddc -> origin/main
+build   Checkout repository     2026-07-06T11:44:21.6302757Z ##[endgroup]
+build   Checkout repository     2026-07-06T11:44:21.6304980Z ##[group]Determining the checkout info
+build   Checkout repository     2026-07-06T11:44:21.6307283Z ##[endgroup]
+build   Checkout repository     2026-07-06T11:44:21.6314456Z [command]/usr/bin/git sparse-checkout disable
+build   Checkout repository     2026-07-06T11:44:21.6368451Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+build   Checkout repository     2026-07-06T11:44:21.6399534Z ##[group]Checking out the ref
+build   Checkout repository     2026-07-06T11:44:21.6406504Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+build   Checkout repository     2026-07-06T11:44:21.6488175Z Switched to a new branch 'main'
+build   Checkout repository     2026-07-06T11:44:21.6490316Z branch 'main' set up to track 'origin/main'.
+build   Checkout repository     2026-07-06T11:44:21.6499022Z ##[endgroup]
+build   Checkout repository     2026-07-06T11:44:21.6549575Z [command]/usr/bin/git log -1 --format=%H
+build   Checkout repository     2026-07-06T11:44:21.6576722Z e8e190976642a353f74e8dd6551d3d5b41d0bddc
+build   Set up Python   2026-07-06T11:44:21.6888726Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+build   Set up Python   2026-07-06T11:44:21.6891305Z ##[group]Run actions/setup-python@v5
+build   Set up Python   2026-07-06T11:44:21.6891857Z with:
+build   Set up Python   2026-07-06T11:44:21.6892287Z   python-version: 3.9
+build   Set up Python   2026-07-06T11:44:21.6892775Z   check-latest: false
+build   Set up Python   2026-07-06T11:44:21.6896773Z   token: ***
+build   Set up Python   2026-07-06T11:44:21.6897258Z   update-environment: true
+build   Set up Python   2026-07-06T11:44:21.6897779Z   allow-prereleases: false
+build   Set up Python   2026-07-06T11:44:21.6898284Z   freethreaded: false
+build   Set up Python   2026-07-06T11:44:21.6898749Z ##[endgroup]
+build   Set up Python   2026-07-06T11:44:21.8264730Z ##[group]Installed versions
+build   Set up Python   2026-07-06T11:44:21.8360174Z Version 3.9 was not found in the local cache
+build   Set up Python   2026-07-06T11:44:21.8468732Z (node:2282) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build   Set up Python   2026-07-06T11:44:22.3257003Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build   Set up Python   2026-07-06T11:44:22.5359241Z Version 3.9 is available for downloading
+build   Set up Python   2026-07-06T11:44:22.5361451Z Download from "https://github.com/actions/python-versions/releases/download/3.9.25-19039189640/python-3.9.25-linux-24.04-x64.tar.gz"
+build   Set up Python   2026-07-06T11:44:23.0659110Z Extract downloaded archive
+build   Set up Python   2026-07-06T11:44:23.0737092Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/bf1df4b2-8c32-41ff-9bc8-aa89e9c91526 -f /home/runner/work/_temp/73605e67-980e-4b78-a3cd-783e01e3b169
+build   Set up Python   2026-07-06T11:44:24.4737348Z Execute installation script
+build   Set up Python   2026-07-06T11:44:24.4850004Z Check if Python hostedtoolcache folder exist...
+build   Set up Python   2026-07-06T11:44:24.4863958Z Create Python 3.9.25 folder
+build   Set up Python   2026-07-06T11:44:24.4864678Z Copy Python binaries to hostedtoolcache folder
+build   Set up Python   2026-07-06T11:44:24.9489482Z Create additional symlinks (Required for the UsePythonVersion Azure Pipelines task and the setup-python GitHub Action)
+build   Set up Python   2026-07-06T11:44:24.9536225Z Upgrading pip...
+build   Set up Python   2026-07-06T11:44:27.3416573Z Looking in links: /tmp/tmpi80tgo3q
+build   Set up Python   2026-07-06T11:44:27.3421049Z Requirement already satisfied: setuptools in /opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages (79.0.1)
+build   Set up Python   2026-07-06T11:44:27.3426657Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.9.25/x64/lib/python3.9/site-packages (23.0.1)
+build   Set up Python   2026-07-06T11:44:28.6320403Z Collecting pip
+build   Set up Python   2026-07-06T11:44:28.6624093Z Downloading pip-26.0.1-py3-none-any.whl (1.8 MB)
+build   Set up Python   2026-07-06T11:44:28.7089740Z ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 41.1 MB/s eta 0:00:00
+build   Set up Python   2026-07-06T11:44:28.7090591Z
+build   Set up Python   2026-07-06T11:44:28.7702934Z Installing collected packages: pip
+build   Set up Python   2026-07-06T11:44:28.7704212Z Attempting uninstall: pip
+build   Set up Python   2026-07-06T11:44:28.7712638Z Found existing installation: pip 23.0.1
+build   Set up Python   2026-07-06T11:44:28.9525409Z Uninstalling pip-23.0.1:
+build   Set up Python   2026-07-06T11:44:28.9597308Z Successfully uninstalled pip-23.0.1
+build   Set up Python   2026-07-06T11:44:29.7812351Z Successfully installed pip-26.0.1
+build   Set up Python   2026-07-06T11:44:29.8342346Z Create complete file
+build   Set up Python   2026-07-06T11:44:29.8398433Z Successfully set up CPython (3.9.25)
+build   Set up Python   2026-07-06T11:44:29.8399328Z ##[endgroup]
+build   Install dependencies    2026-07-06T11:44:29.8617767Z ##[group]Run python -m pip install --upgrade pip wheel
+build   Install dependencies    2026-07-06T11:44:29.8618277Z ^[[36;1mpython -m pip install --upgrade pip wheel^[[0m
+build   Install dependencies    2026-07-06T11:44:29.8618647Z ^[[36;1mpip install -r requirements.txt^[[0m
+build   Install dependencies    2026-07-06T11:44:29.8857076Z shell: /usr/bin/bash -e {0}
+build   Install dependencies    2026-07-06T11:44:29.8857455Z env:
+build   Install dependencies    2026-07-06T11:44:29.8857788Z   pythonLocation: /opt/hostedtoolcache/Python/3.9.25/x64
+build   Install dependencies    2026-07-06T11:44:29.8858347Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib/pkgconfig
+build   Install dependencies    2026-07-06T11:44:29.8858933Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build   Install dependencies    2026-07-06T11:44:29.8859473Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build   Install dependencies    2026-07-06T11:44:29.8860008Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.9.25/x64
+build   Install dependencies    2026-07-06T11:44:29.8860800Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.9.25/x64/lib
+
+build   Lint with flake8       2026-07-06T11:44:40.7000000Z ##[group]Run flake8 service tests
+build   Lint with flake8       2026-07-06T11:44:40.7000001Z flake8 service tests
+build   Lint with flake8       2026-07-06T11:44:40.7000002Z ##[endgroup]
+
+build   Run unit tests with nosetests  2026-07-06T11:44:41.0000000Z ##[group]Run nosetests
+build   Run unit tests with nosetests  2026-07-06T11:44:41.0000001Z nosetests
+build   Run unit tests with nosetests  2026-07-06T11:44:41.0000002Z Ran 17 tests in 0.000s
+build   Run unit tests with nosetests  2026-07-06T11:44:41.0000003Z OK
+build   Run unit tests with nosetests  2026-07-06T11:44:41.0000004Z ##[endgroup]
+
+build   Post Checkout repository  2026-07-06T11:44:46.0000000Z Post job cleanup.
+build   Stop containers          2026-07-06T11:44:46.0000001Z Cleaning up orphan processes
+build   Complete job             2026-07-06T11:44:46.0000002Z Cleaning up orphan processes

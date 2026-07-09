@@ -1,0 +1,91 @@
+$ tkn pipelinerun describe
+
+Name:              cd-pipeline-run-b5vgf
+Namespace:         default
+Pipeline Ref:      cd-pipeline
+Service Account:   default
+Labels:
+ tekton.dev/pipeline=cd-pipeline
+
+Status
+
+STARTED          DURATION   STATUS
+40 seconds ago   40s        Succeeded
+
+Timeouts
+ Pipeline:   1h0m0s
+
+Params
+
+ NAME       VALUE
+ repo-url   https://github.com/alicess19/devops-capstone-project.git
+
+Workspaces
+
+ NAME                 SUB PATH   WORKSPACE BINDING
+ pipeline-workspace   ---        VolumeClaimTemplate
+
+Taskruns
+
+ NAME                                 TASK NAME      STARTED          DURATION   STATUS
+ cd-pipeline-run-b5vgf-verify-files   verify-files   6 seconds ago    6s         Succeeded
+ cd-pipeline-run-b5vgf-clone          clone          12 seconds ago   6s         Succeeded
+ cd-pipeline-run-b5vgf-cleanup        cleanup        40 seconds ago   28s        Succeeded
+
+$ tkn pipelinerun logs --all
+
+[cleanup : prepare] 2026/07/06 13:04:10 Entrypoint initialization
+
+[cleanup : place-scripts] 2026/07/06 13:04:15 Decoded script /tekton/scripts/script-0-j6fw8
+
+
+[cleanup : remove-files] Cleaning workspace...
+[cleanup : remove-files] Workspace cleaned.
+
+[clone : prepare] 2026/07/06 13:04:26 Entrypoint initialization
+
+[clone : place-scripts] 2026/07/06 13:04:27 Decoded script /tekton/scripts/script-0-lh524
+
+
+[clone : clone] Cloning repository: https://github.com/alicess19/devops-capstone-project.git
+[clone : clone] Cloning into '.'...
+[clone : clone] Repository cloned successfully.
+[clone : clone] 7e24e1b Add Tekton CD pipeline execution
+
+[verify-files : prepare] 2026/07/06 13:04:32 Entrypoint initialization
+
+[verify-files : place-scripts] 2026/07/06 13:04:33 Decoded script /tekton/scripts/script-0-4q9nl
+
+
+[verify-files : verify] Verifying repository contents...
+[verify-files : verify] Required application files were found.
+[verify-files : verify] total 108
+[verify-files : verify] drwxrwxrwx   10 root     root          4096 Jul  6 13:04 .
+[verify-files : verify] drwxrwxrwx    3 root     root          4096 Jul  6 13:04 ..
+[verify-files : verify] drwxr-xr-x    2 root     root          4096 Jul  6 13:04 .devcontainer
+[verify-files : verify] -rw-r--r--    1 root     root            42 Jul  6 13:04 .flaskenv
+[verify-files : verify] drwxr-xr-x    8 root     root          4096 Jul  6 13:04 .git
+[verify-files : verify] -rw-r--r--    1 root     root            88 Jul  6 13:04 .gitattributes
+[verify-files : verify] drwxr-xr-x    3 root     root          4096 Jul  6 13:04 .github
+[verify-files : verify] -rw-r--r--    1 root     root          1239 Jul  6 13:04 .gitignore
+[verify-files : verify] -rw-r--r--    1 root     root           382 Jul  6 13:04 Dockerfile
+[verify-files : verify] -rw-r--r--    1 root     root         11358 Jul  6 13:04 LICENSE
+[verify-files : verify] -rw-r--r--    1 root     root          2854 Jul  6 13:04 Makefile
+[verify-files : verify] -rw-r--r--    1 root     root            76 Jul  6 13:04 Procfile
+[verify-files : verify] -rw-r--r--    1 root     root          7459 Jul  6 13:04 README.md
+[verify-files : verify] drwxr-xr-x    2 root     root          4096 Jul  6 13:04 bin
+[verify-files : verify] drwxr-xr-x    2 root     root          4096 Jul  6 13:04 deploy
+[verify-files : verify] -rw-r--r--    1 root     root          7330 Jul  6 13:04 postgresql-ephemeral-template.json
+[verify-files : verify] -rw-r--r--    1 root     root           472 Jul  6 13:04 requirements.txt
+[verify-files : verify] -rw-r--r--    1 root     root           565 Jul  6 13:04 rest-create-done
+[verify-files : verify] drwxr-xr-x    3 root     root          4096 Jul  6 13:04 service
+[verify-files : verify] -rw-r--r--    1 root     root           263 Jul  6 13:04 setup.cfg
+[verify-files : verify] drwxr-xr-x    2 root     root          4096 Jul  6 13:04 tekton
+[verify-files : verify] drwxr-xr-x    2 root     root          4096 Jul  6 13:04 tests
+[verify-files : verify] -rw-r--r--    1 root     root           346 Jul  6 13:04 user-story.md
+
+
+$ kubectl get pipelinerun
+
+NAME                    SUCCEEDED   REASON      STARTTIME   COMPLETIONTIME
+cd-pipeline-run-b5vgf   True        Succeeded   40s         0s
